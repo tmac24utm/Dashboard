@@ -7,7 +7,7 @@
     <header>
         <h1 id="header">Welcome <span id="header_text">Guest</span></h1>
     </header>
-    <?php if(isset($_SESSION['userid'])){?>
+    <?php if(isset($_SESSION['UserID'])){?>
     <div id="map"></div>
     <script>
         function initMap() {
@@ -43,14 +43,8 @@
                 'Error: Your browser doesn\'t support geolocation.');
         }
     </script>
-    <?php }else { echo "<div class=error>Please login or register to access the features of this website</div>";
-    echo "<div id='form'>
-        <form>
-            <input id='name' type='text' name='name' placeholder='Name' required>
-            <input type='password' name='password' placeholder='Password' required>
-            <input type='submit' onclick='setHeader();'>
-        </form>
-    </div>";}?>
+    <?php }else { echo "<div class=error>Please login or register to access the features of this website</div>";}?>
+    <?php require ("account.php");?>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD20hEhOFvacycdb9UGlDrKb4Tu1lAKdZc&callback=initMap"></script>
 </body>
 </html>
