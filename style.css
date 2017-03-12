@@ -76,3 +76,12 @@ input[type=submit]:hover {
     background-color: #FFBABA;
     padding: 2em 0;
 }
+
+#time {
+    height: 50%;
+    width: 25%;
+    margin-left: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

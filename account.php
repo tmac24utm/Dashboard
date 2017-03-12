@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <?php   
     require 'class.pdo.php';
     $pdo = new pdo_class("91.121.220.21", "tom_database", "7KcxVVvYtKDe8fHm", "tom_database");
@@ -12,9 +10,9 @@
         echo "
             <div id='form'>
                 <form method='POST' action ='index.php'>
-                    <input type='text' name='name' placeholder='Name' required>
+                    <input id='name' type='text' name='name' placeholder='Name' required>
                     <input type='password' name='password' placeholder='Password' required> 
-                    <input type='submit'>
+                    <input type='submit' onclick='setHeader()'>
             </form>";
     }
 
@@ -41,4 +39,3 @@
         }
     }
 ?>
-</html>
