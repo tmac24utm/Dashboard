@@ -1,18 +1,16 @@
-<?php   
-    require 'class.pdo.php';
-    $pdo = new pdo_class("91.121.220.21", "tom_database", "7KcxVVvYtKDe8fHm", "tom_database");
-?>
 <?php 
     if(isset($_SESSION['UserID'])){
-        echo "logged in!";
-        echo '<a href="logout.php">Logout</a>';
+        echo '<ul>
+                <li style="float:right"><a href="logout.php">Logout</a></li>
+                <li><a href="accountSettings.php">Account Settings</a></li>
+              </ul>';
     } else {
         echo "
             <div id='form'>
                 <form method='POST' action ='index.php'>
                     <input id='name' type='text' name='name' placeholder='Name' required>
                     <input type='password' name='password' placeholder='Password' required> 
-                    <input type='submit' onclick='setHeader()'>
+                    <input type='submit'>
             </form>";
     }
 
