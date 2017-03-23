@@ -99,3 +99,15 @@ input[type=submit]:hover {
     font-size: 40px;
     color: white;
 }
+
+#clockSettings {
+    width: 10%;
+}
+
+#twitterSettings {
+    width: 25%;
+}
+
+#twitterSettings[placeholder] {
+    text-align: left;
+}

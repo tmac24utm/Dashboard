@@ -1,19 +1,4 @@
 <?php 
-    if(isset($_SESSION['UserID'])){
-        echo '<ul>
-                <li style="float:right"><a href="logout.php">Logout</a></li>
-                <li><a href="accountSettings.php">Account Settings</a></li>
-              </ul>';
-    } else {
-        echo "
-            <div id='form'>
-                <form method='POST' action ='index.php'>
-                    <input id='name' type='text' name='name' placeholder='Name' required>
-                    <input type='password' name='password' placeholder='Password' required> 
-                    <input type='submit'>
-            </form>";
-    }
-
     if(isset($_POST) && !empty($_POST)){
         $name = $_POST['name'];
         $password = $_POST['password'];
@@ -35,5 +20,13 @@
             header("Location: index.php");
             exit;
         }
+    } else {
+        echo "
+            <div id='form'>
+                <form method='POST' action ='index.php'>
+                    <input id='name' type='text' name='name' placeholder='Name' required>
+                    <input type='password' name='password' placeholder='Password' required> 
+                    <input type='submit'>
+            </form>";
     }
 ?>
