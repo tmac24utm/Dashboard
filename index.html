@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Clicker+Script|Indie+Flower" rel="stylesheet">
+    <script src="myJS.js"></script>
+    <title>Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1 id="header"><span id="dateTime"></span></h1>
+    </header>
+
+    <ul>
+        <li><a href="accountSettings.html">Account Settings</a></li>
+    </ul>
+
+    <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-width="30%" data-height="500" data-chrome="nofooter"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        document.getElementById("twitter").href = "https://twitter.com/" + localStorage.getItem("twitterSettings");
+    </script>
+</body>
+</html>

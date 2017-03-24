@@ -1,5 +1,12 @@
 'use strict';
 
+function checkElementExists(elem){
+    var elem = document.querySelector(elem);
+    if(elem == null){
+        return false;
+    } else return true;
+}
+
 function dateTime(){
     var today = new Date();
     var dd = today.getDate();
@@ -26,6 +33,8 @@ function dateTime(){
     }
 
     today = dd+'/'+mm+'/'+yyyy+' '+h+':'+m+':'+s;
-    document.getElementById('dateTime').innerHTML = today;
+    if(checkElementExists('#dateTime')){
+        document.getElementById('dateTime').innerHTML = today;
+    }
 }
 setInterval(dateTime, 1000);

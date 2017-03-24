@@ -1,0 +1,23 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myJS.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmac24utm/Dashboard.git"
+  },
+  "author": "UP777900",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmac24utm/Dashboard/issues"
+  },
+  "homepage": "https://github.com/tmac24utm/Dashboard#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "http": "0.0.0",
+  }
+}
