@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Clicker+Script|Indie+Flower" rel="stylesheet">
     <title>Dashboard</title>
 </head>
@@ -14,10 +15,18 @@
 
     <ul>
         <li><a href="accountSettings.html">Account Settings</a></li>
-        <li><a id="location" href="#">Location</a></li>
     </ul>
 
-    <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-width="30%" data-height="500" data-chrome="nofooter"></a>
+    <div class="row">
+
+    <div class="col-md-4">
+    <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-height="1000" data-chrome="nofooter"></a>
+    </div>
+
+    <div class="col-md-4">
+        <p id="location">Location</p>
+    </div>
+    </div>
 
     <script>
         if(localStorage.getItem("twitterSettings") === null){

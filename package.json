@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/tmac24utm/Dashboard#readme",
   "dependencies": {
-    "express": "^4.15.2"
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0"
   }
 }
