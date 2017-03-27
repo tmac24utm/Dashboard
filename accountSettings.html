@@ -13,8 +13,8 @@
             <li><a href="index.html">Home</a></li>
         </ul>
 
-        Which clock would you like: <select id="clockSettings">
-            <option value="24H">24 Hour</option>
+        Which clock would you like: <select id="clockSettings" onchange="changeClockSettings(this)">
+            <option value="24H" selected>24 Hour</option>
             <option value="12H">12 Hour</option>
         </select>
      
@@ -24,6 +24,20 @@
             function changeTwitterSettings(){
                 var twitterSettings = document.getElementById("twitterSettings");
                 localStorage.setItem("twitterSettings", twitterSettings.value);
+            }
+
+            document.getElementById("twitterSettings").placeholder = localStorage.getItem("twitterSettings");
+
+            function changeClockSettings(selectObject){
+                var value = selectObject.value;
+                var clockSettings = document.getElementById("clockSettings");
+                localStorage.setItem("clockSettings", clockSettings.value);
+            }
+
+            if(localStorage.getItem("clockSettings") == "12H"){
+                document.getElementById("clockSettings").options[1].selected = true;
+            } else {
+                document.getElementById("clockSettings").options[0].selected = true;
             }
         </script>
 </body>
