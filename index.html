@@ -7,7 +7,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Clicker+Script|Indie+Flower" rel="stylesheet">
     <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD20hEhOFvacycdb9UGlDrKb4Tu1lAKdZc"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD20hEhOFvacycdb9UGlDrKb4Tu1lAKdZc&callback=initMap"></script>
     <script src="myJS.js"></script>
     <title>Dashboard</title>
 </head>
@@ -22,20 +22,35 @@
 
     <div class="row">
 
-        <div class="col-md-4">
-            <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-height="1000" data-chrome="nofooter"></a>
+        <div class="col-md-4" id="twitterBox">
+            <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-height="100%" data-chrome="nofooter, noheader"></a>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4" id="locationBox">
             <p id="location">Location</p>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4" id="testBox">
             <p>Test test test</p>
         </div>
 
         <div class="col-md-4">
-            <p>Test test test</p>
+            <div id="mapBox"></div>
+            <script>
+                function initMap() {
+                    var userLocation = localStorage.getItem("userLocation");
+
+                    var latLong = userLocation.split(",");
+                    
+                    var map = new google.maps.Map(document.getElementById('mapBox'), {
+                        zoom: 13,
+                        center: {lat: Number(latLong[0]), lng: Number(latLong[1])}
+                    });
+
+                    var trafficLayer = new google.maps.TrafficLayer();
+                    trafficLayer.setMap(map);
+                }
+            </script>
         </div>
     </div>
 

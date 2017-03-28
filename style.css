@@ -62,3 +62,23 @@ input[type=text], select {
     padding-top: 2em;
     text-align: center;
 }
+
+#twitterBox {
+    height: 35em;
+}
+
+#locationBox {
+    height: 5em;
+}
+
+#mapBox {
+    height: 20em;
+}
+
+#testBox {
+    height: 20em;
+}
+
+.row{
+    margin: 0 !important;
+}

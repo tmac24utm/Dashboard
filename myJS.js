@@ -1,6 +1,6 @@
 'use strict';
 
-var ws = new WebSocket("ws://35.187.164.248:8081");
+var ws = new WebSocket("ws://35.187.119.153:8081");
 
 function checkElementExists(elem){
     var elem = document.querySelector(elem);
@@ -68,7 +68,6 @@ function handleLocationError(browserHasGeolocation) {
 }
 
 function getLocationFromIP(){
-    console.log("getLocationFromIP()");
     var req = new XMLHttpRequest();
     req.addEventListener("load", locationIPResponse);
     req.open("GET", "http://ip-api.com/json");
@@ -77,8 +76,7 @@ function getLocationFromIP(){
 
 function locationIPResponse(){
     var response = JSON.parse(this.responseText);
-    localStorage.setItem("userLocation", response.lon + "," + response.lat);
-    codeLatLng(response.lat, response.lng);
+    localStorage.setItem("userLocation", response.lat + "," + response.lon);
 }
 
 function sendLocation(){
