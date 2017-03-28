@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Clicker+Script|Indie+Flower" rel="stylesheet">
+    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD20hEhOFvacycdb9UGlDrKb4Tu1lAKdZc"></script>
+    <script src="myJS.js"></script>
     <title>Dashboard</title>
 </head>
-<body onload="getLocation()">
+<body onload="getLocation(); sendLocation()">
     <header>
         <h1 id="header"><span id="dateTime"></span></h1>
     </header>
@@ -19,13 +22,21 @@
 
     <div class="row">
 
-    <div class="col-md-4">
-    <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-height="1000" data-chrome="nofooter"></a>
-    </div>
+        <div class="col-md-4">
+            <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-height="1000" data-chrome="nofooter"></a>
+        </div>
 
-    <div class="col-md-4">
-        <p id="location">Location</p>
-    </div>
+        <div class="col-md-4">
+            <p id="location">Location</p>
+        </div>
+
+        <div class="col-md-4">
+            <p>Test test test</p>
+        </div>
+
+        <div class="col-md-4">
+            <p>Test test test</p>
+        </div>
     </div>
 
     <script>
@@ -35,10 +46,5 @@
             document.getElementById("twitter").href = "https://twitter.com/" + localStorage.getItem("twitterSettings");
         }
     </script>
-
-    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD20hEhOFvacycdb9UGlDrKb4Tu1lAKdZc"></script>
-    <script src="myJS.js"></script>
-
 </body>
 </html>

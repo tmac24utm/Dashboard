@@ -30,6 +30,10 @@ li a {
     text-decoration: none !important;
 }
 
+a:hover {
+    color: white !important;
+}
+
 input[type=text], select {
     padding: 12px 20px;
     margin: 8px 0;

@@ -1,5 +1,7 @@
 'use strict';
 
+var ws = new WebSocket("ws://35.187.164.248:8081");
+
 function checkElementExists(elem){
     var elem = document.querySelector(elem);
     if(elem == null){
@@ -52,44 +54,33 @@ function getLocation(){
               lng: position.coords.longitude
             };
             localStorage.setItem("userLocation", JSON.stringify(pos));
-            codeLatLng(pos.lat, pos.lng);
           }, function() {
             handleLocationError(true);
           });
     } else {
     // Browser doesn't support Geolocation
-    handleLocationError(false);
+        handleLocationError(false);
     }
 }
 
 function handleLocationError(browserHasGeolocation) {
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
+    getLocationFromIP();
 }
 
+function getLocationFromIP(){
+    console.log("getLocationFromIP()");
+    var req = new XMLHttpRequest();
+    req.addEventListener("load", locationIPResponse);
+    req.open("GET", "http://ip-api.com/json");
+    req.send();
+}
 
-var geocoder= new google.maps.Geocoder();
-function codeLatLng(lat, lng) {
-  var latlng = new google.maps.LatLng(lat, lng);
-  geocoder.geocode({latLng: latlng}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      if (results[1]) {
-        var arrAddress = results;
+function locationIPResponse(){
+    var response = JSON.parse(this.responseText);
+    localStorage.setItem("userLocation", response.lon + "," + response.lat);
+    codeLatLng(response.lat, response.lng);
+}
 
-        for(var i = 0; i < arrAddress.length; i++){
-            if(arrAddress[i].types[0] == "locality"){
-                localStorage.setItem("location", arrAddress[i].address_components[0].long_name);
-                document.getElementById("location").textContent = localStorage.getItem("location");
-                break;
-            }
-        }
-
-      } else {
-        alert("No results found");
-      }
-    } else {
-      alert("Geocoder failed due to: " + status);
-    }
-  });
+function sendLocation(){
+    ws.send(localStorage.getItem("userLocation"));
 }
