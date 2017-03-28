@@ -1,7 +1,14 @@
-var express = require('express');
-var app = express();
+const http = require('http');
+const wsserver = require('ws').Server;
+const express = require('express');
 var Forecast = require('forecast');
-const Websocket = require('ws');
+
+const server = http.createServer();
+const wss = new wsserver({ server: server });
+const app = express();
+
+
+server.on('request', app);
 
 app.use(express.static(__dirname));
 
@@ -11,8 +18,8 @@ var forecast = new Forecast({
   units: 'celcius'
 });
 
-const wss = new Websocket.Server({port: 8081})
 wss.on('connection', function connection(ws) {
+  console.log("Websocket started")
   ws.on('message', function incoming(message) {
     forecast.get([message], function(err, weather) {
       if(err) return console.dir(err);
@@ -30,5 +37,5 @@ app.get('/accountSettings', function (req, res) {
   res.sendFile(__dirname + "/accountSettings.html");
 });
 
-app.listen(8080);
-console.log("Server started")
+server.listen(8080);
+console.log("Server started");
