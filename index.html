@@ -11,7 +11,7 @@
     <script src="myJS.js"></script>
     <title>Dashboard</title>
 </head>
-<body onload="getLocation(); sendLocation()">
+<body onload="getLocation(); sendLocation(); getWeather()">
     <header>
         <h1 id="header"><span id="dateTime"></span></h1>
     </header>
@@ -23,7 +23,7 @@
     <div class="row">
 
         <div class="col-md-4" id="twitterBox">
-            <a id="twitter" class="twitter-timeline" href="https://twitter.com/TwitterDev" data-height="100%" data-chrome="nofooter, noheader"></a>
+            <a id="twitter" class="twitter-timeline" href="" data-height="35em" data-chrome="nofooter, noheader"></a>
         </div>
 
         <div class="col-md-4" id="locationBox">
@@ -31,7 +31,7 @@
         </div>
 
         <div class="col-md-4" id="testBox">
-            <p>Test test test</p>
+            
         </div>
 
         <div class="col-md-4">
@@ -57,9 +57,12 @@
     <script>
         if(localStorage.getItem("twitterSettings") === null){
             localStorage.setItem("twitterSettings", "twitterDev");
+            document.getElementById("twitter").href = "https://twitter.com/" + localStorage.getItem("twitterSettings");
         } else {
             document.getElementById("twitter").href = "https://twitter.com/" + localStorage.getItem("twitterSettings");
         }
+
+        document.getElementById("location").innerHTML = localStorage.getItem("weather");
     </script>
 </body>
 </html>

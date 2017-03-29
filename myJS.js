@@ -82,3 +82,9 @@ function locationIPResponse(){
 function sendLocation(){
     ws.send(localStorage.getItem("userLocation"));
 }
+
+function getWeather(){
+    ws.onmessage = function(message) {
+        localStorage.setItem("weather", "Todays Forecast: " + JSON.parse(message.data).hourly + "<br />" + "Currently: " + JSON.parse(message.data).currently);
+    }
+}

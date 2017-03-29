@@ -63,12 +63,10 @@ input[type=text], select {
     text-align: center;
 }
 
-#twitterBox {
-    height: 35em;
-}
-
 #locationBox {
     height: 5em;
+    font-family: 'Indie Flower', cursive;
+    font-size: 35px;
 }
 
 #mapBox {
@@ -76,7 +74,7 @@ input[type=text], select {
 }
 
 #testBox {
-    height: 20em;
+    height: 15em;
 }
 
 .row{

@@ -21,11 +21,10 @@ var forecast = new Forecast({
 wss.on('connection', function connection(ws) {
   console.log("Websocket started")
   ws.on('message', function incoming(message) {
-    forecast.get([message], function(err, weather) {
+    forecast.get([message], true, function(err, weather) {
       if(err) return console.dir(err);
-      console.dir(weather);
+      ws.send(JSON.stringify({"currently":weather.currently.summary, "hourly":weather.hourly.summary}));
     });
-    console.log('received: %s', message);
   });
 });
 
