@@ -26,6 +26,10 @@ function changeDateTime(){
         mm='0'+mm
     } 
 
+    if(h==0){
+        h='0'+h
+    }
+
     if(m<10){
         m='0'+m
     }
@@ -80,11 +84,18 @@ function locationIPResponse(){
 }
 
 function sendLocation(){
-    ws.send(localStorage.getItem("userLocation"));
+    if(localStorage.getItem("userLocation")){
+        ws.send(localStorage.getItem("userLocation"));
+    } else {
+        setTimeout(function(){
+            sendLocation();
+        }, 1000);
+    }
 }
 
 function getWeather(){
     ws.onmessage = function(message) {
         localStorage.setItem("weather", "Todays Forecast: " + JSON.parse(message.data).hourly + "<br />" + "Currently: " + JSON.parse(message.data).currently);
-    }
+        document.getElementById("location").innerHTML = localStorage.getItem("weather");
+    }   
 }

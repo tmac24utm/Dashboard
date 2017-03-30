@@ -21,9 +21,15 @@ var forecast = new Forecast({
 wss.on('connection', function connection(ws) {
   console.log("Websocket started")
   ws.on('message', function incoming(message) {
-    forecast.get([message], true, function(err, weather) {
+    var loc = JSON.parse(message);
+    forecast.get([loc.lat, loc.lng], true, function(err, weather) {
       if(err) return console.dir(err);
-      ws.send(JSON.stringify({"currently":weather.currently.summary, "hourly":weather.hourly.summary}));
+
+      if(weather !== undefined){
+          ws.send(JSON.stringify({"currently":weather.currently.summary, "hourly":weather.hourly.summary}));
+      } else {
+          ws.send(JSON.stringify({"currently":"Unavailable", "hourly":"Unavailable"}));
+      }
     });
   });
 });

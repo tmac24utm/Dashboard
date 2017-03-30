@@ -22,36 +22,43 @@
 
     <div class="row">
 
-        <div class="col-md-4" id="twitterBox">
-            <a id="twitter" class="twitter-timeline" href="" data-height="35em" data-chrome="nofooter, noheader"></a>
-        </div>
-
-        <div class="col-md-4" id="locationBox">
-            <p id="location">Location</p>
-        </div>
-
-        <div class="col-md-4" id="testBox">
-            
+        <div class="col-md-4">
+            <div id="twitterBox">
+                <a id="twitter" class="twitter-timeline" href="" data-height="100%" data-chrome="nofooter, noheader"></a>
+            </div>
         </div>
 
         <div class="col-md-4">
+            <div id="locationBox">
+                <p id="location">Location</p>
+            </div>
             <div id="mapBox"></div>
             <script>
                 function initMap() {
-                    var userLocation = localStorage.getItem("userLocation");
+                    if(localStorage.getItem("userLocation")){
+                        var userLocation = JSON.parse(localStorage.getItem("userLocation"));
 
-                    var latLong = userLocation.split(",");
-                    
-                    var map = new google.maps.Map(document.getElementById('mapBox'), {
-                        zoom: 13,
-                        center: {lat: Number(latLong[0]), lng: Number(latLong[1])}
-                    });
+                        var map = new google.maps.Map(document.getElementById('mapBox'), {
+                            zoom: 13,
+                            center: {lat: Number(userLocation.lat), lng: Number(userLocation.lng)}
+                        });
 
-                    var trafficLayer = new google.maps.TrafficLayer();
-                    trafficLayer.setMap(map);
+                        var trafficLayer = new google.maps.TrafficLayer();
+                        trafficLayer.setMap(map);
+                    } else {
+                        setTimeout(function(){
+                            initMap();
+                        }, 1000);
+                    }
                 }
             </script>
         </div>
+
+        <div class="col-md-4">
+            <div  id="testBox">
+                <h1>Something shit here</h1>
+            </div>
+        </div>         
     </div>
 
     <script>
