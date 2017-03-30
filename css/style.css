@@ -5,6 +5,7 @@ html {
 
 .row {
     height: calc(100% - 85px);
+    margin: 0 !important;
 }
 
 header {
@@ -74,10 +75,6 @@ input[type=text], select {
 
 #mapBox {
     height: calc(50vh - 90px);
-}
-
-.row{
-    margin: 0 !important;
 }
 
 #twitterBox{

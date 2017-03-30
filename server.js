@@ -19,7 +19,6 @@ var forecast = new Forecast({
 });
 
 wss.on('connection', function connection(ws) {
-  console.log("Websocket started")
   ws.on('message', function incoming(message) {
     var loc = JSON.parse(message);
     forecast.get([loc.lat, loc.lng], true, function(err, weather) {
@@ -44,3 +43,4 @@ app.get('/accountSettings', function (req, res) {
 
 server.listen(8080);
 console.log("Server started");
+console.log("Websocket started");
