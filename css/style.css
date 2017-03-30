@@ -13,6 +13,7 @@ header {
 }
 
 header h1 {
+    font-family: 'Revalia', cursive;
 	text-align: center;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -27,8 +28,8 @@ ul {
 }
 
 li a {
-    font-family: 'Indie Flower', cursive;
-    font-size: 20px;
+    font-family: 'Revalia', cursive;
+    font-size: 15px;
     color: white;
     padding: 5px;
     text-decoration: none !important;
@@ -45,8 +46,8 @@ input[type=text], select {
 }
 
 #dateTime {
-    font-family: 'Clicker Script', cursive;
-    font-size: 40px;
+    font-family: 'Revalia', cursive;
+    font-size: 30px;
     color: white;
 }
 
@@ -67,14 +68,37 @@ input[type=text], select {
     text-align: center;
 }
 
+#noteBox {
+    height: calc(100vh - 90px);
+    border-left: 1px solid #ffaa9f;
+    border-right: 1px solid #ffaa9f;
+    border-bottom: 1px solid #ffaa9f;
+
+    overflow-y: none;
+    overflow-x: auto;
+}
+
+#notepad{
+    line-height: 50px;
+    -webkit-background-size: 100% 50px;
+    background-size: 100% 50px;
+    background-image: -moz-linear-gradient(top , transparent, transparent 49px,#E7EFF8 0px);
+    background-image: -webkit-linear-gradient(top , transparent, transparent 49px,#E7EFF8 0);
+    overflow-y: none;
+    overflow-x: auto;
+    word-wrap: break-word;
+    padding: 0 1em;
+}
+
 #locationBox {
-    height: calc(50vh - 90px);
-    font-family: 'Indie Flower', cursive;
-    font-size: 35px;
+    height: calc(25vh);
+    font-family: 'Revalia', cursive;
+    font-size: 20px;
+    text-align: left;
 }
 
 #mapBox {
-    height: calc(50vh - 90px);
+    height: calc(75vh - 90px);
 }
 
 #twitterBox{

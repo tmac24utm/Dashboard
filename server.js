@@ -23,9 +23,8 @@ wss.on('connection', function connection(ws) {
     var loc = JSON.parse(message);
     forecast.get([loc.lat, loc.lng], true, function(err, weather) {
       if(err) return console.dir(err);
-
       if(weather !== undefined){
-          ws.send(JSON.stringify({"currently":weather.currently.summary, "hourly":weather.hourly.summary}));
+          ws.send(JSON.stringify({"currently":weather.currently.summary + "," + Math.round(Number(weather.currently.temperature)) + "°C", "hourly":weather.hourly.summary}));
       } else {
           ws.send(JSON.stringify({"currently":"Unavailable", "hourly":"Unavailable"}));
       }

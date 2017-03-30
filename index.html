@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Clicker+Script|Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Revalia" rel="stylesheet">
     
-    <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD20hEhOFvacycdb9UGlDrKb4Tu1lAKdZc&callback=initMap"></script>
     <script src="myJS.js"></script>
     <title>Dashboard</title>
 </head>
-<body onload="getLocation(); sendLocation(); getWeather()">
+<body onload="getLocation(); sendLocation(); getWeather(); getNotes()">
     <header>
-        <h1 id="header"><span id="dateTime"></span></h1>
+        <h1><span id="dateTime"></span></h1>
     </header>
 
     <ul>
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4" id="test">
             <div id="locationBox">
                 <p id="location">Location</p>
             </div>
@@ -56,8 +56,11 @@
         </div>
 
         <div class="col-md-4">
-            <div  id="testBox">
-                <h1>Something shit here</h1>
+            <div id="noteBox">
+                <section>
+                    <header><h1>Take Notes Here;</h1></header>
+                    <article id="notepad" onkeyup="setNotes();" contenteditable="true"></article>
+                </section>
             </div>
         </div>         
     </div>

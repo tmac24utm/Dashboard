@@ -80,7 +80,7 @@ function getLocationFromIP(){
 
 function locationIPResponse(){
     var response = JSON.parse(this.responseText);
-    localStorage.setItem("userLocation", response.lat + "," + response.lon);
+    localStorage.setItem("userLocation", JSON.stringify({"lat":response.lat, "lng":response.lon}));
 }
 
 function sendLocation(){
@@ -92,10 +92,19 @@ function sendLocation(){
         }, 1000);
     }
 }
+setInterval(sendLocation, 300000);
 
 function getWeather(){
     ws.onmessage = function(message) {
         localStorage.setItem("weather", "Todays Forecast: " + JSON.parse(message.data).hourly + "<br />" + "Currently: " + JSON.parse(message.data).currently);
         document.getElementById("location").innerHTML = localStorage.getItem("weather");
     }   
+}
+
+function setNotes(){
+    localStorage.setItem("notes", document.getElementById("notepad").innerHTML);
+}
+
+function getNotes(){
+    document.getElementById("notepad").innerHTML = localStorage.getItem("notes");
 }
