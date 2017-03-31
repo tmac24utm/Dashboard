@@ -79,6 +79,7 @@ input[type=text], select {
 }
 
 #notepad{
+    font-family: 'Revalia', cursive;
     line-height: 50px;
     -webkit-background-size: 100% 50px;
     background-size: 100% 50px;
@@ -91,7 +92,7 @@ input[type=text], select {
 }
 
 #locationBox {
-    height: calc(25vh);
+    height: 25vh;
     font-family: 'Revalia', cursive;
     font-size: 20px;
     text-align: left;

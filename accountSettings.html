@@ -3,45 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Script calls - Including Twitter, Google Maps, and Custom Javascript File -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
     <title>Dashboard</title>
 </head>
+
 <body>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-        </ul>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
 
-        <div id="Settings">
-            <h1>Change the settings of the Dashboard on this page</h1>
+    <div id="Settings">
+        <h1>Change the settings of the Dashboard on this page</h1>
             
-            Which clock would you like: <select id="clockSettings" onchange="changeClockSettings(this)">
-                <option value="24H" selected>24 Hour</option>
-                <option value="12H">12 Hour</option>
-            </select>
-     
-            <br>Username of the twitter account you'd like to see: <input id="twitterSettings" type="text" name="twitterSettings" placeholder="" onchange="changeTwitterSettings()">
-        </div>
+        Which clock would you like: 
+        <select id="clockSettings" onchange="changeClockSettings(this)">
+            <option value="24H" selected>24 Hour</option>
+            <option value="12H">12 Hour</option>
+        </select>
+
+        <br>
+        Username of the twitter account you'd like to see: <input id="twitterSettings" type="text" name="twitterSettings" placeholder="" onchange="changeTwitterSettings()">
+    </div>
         
-        <script>
-            function changeTwitterSettings(){
-                var twitterSettings = document.getElementById("twitterSettings");
-                localStorage.setItem("twitterSettings", twitterSettings.value);
-            }
-            document.getElementById("twitterSettings").placeholder = localStorage.getItem("twitterSettings");
+    <script>
+        /**
+         * Sets the local storage "twitterSettings"
+         */
+        function changeTwitterSettings(){
+            var twitterSettings = document.getElementById("twitterSettings");
+            localStorage.setItem("twitterSettings", twitterSettings.value);
+        }
+        document.getElementById("twitterSettings").placeholder = localStorage.getItem("twitterSettings");
 
-            function changeClockSettings(selectObject){
-                var value = selectObject.value;
-                var clockSettings = document.getElementById("clockSettings");
-                localStorage.setItem("clockSettings", clockSettings.value);
-            }
+        /**
+         * Sets the local storage "clockSettings"
+         */ 
+        function changeClockSettings(selectObject){
+            var value = selectObject.value;
+            var clockSettings = document.getElementById("clockSettings");
+            localStorage.setItem("clockSettings", clockSettings.value);
+        }
 
-            if(localStorage.getItem("clockSettings") == "12H"){
-                document.getElementById("clockSettings").options[1].selected = true;
-            } else {
-                document.getElementById("clockSettings").options[0].selected = true;
-            }
-        </script>
+        // Depending on user selection, saves that as the selected option
+        if(localStorage.getItem("clockSettings") == "12H"){
+            document.getElementById("clockSettings").options[1].selected = true;
+        } else {
+            document.getElementById("clockSettings").options[0].selected = true;
+        }
+    </script>
 </body>
 </html>
