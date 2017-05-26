@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'F:\\NodeJS\\node.exe',
+1 verbose cli   'F:\\NodeJS\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dashboard' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
+4 verbose run-script [ 'predashboard', 'dashboard', 'postdashboard' ]
+5 info lifecycle dashboard@1.0.0~predashboard: dashboard@1.0.0
+6 silly lifecycle dashboard@1.0.0~predashboard: no script for predashboard, continuing
+7 info lifecycle dashboard@1.0.0~dashboard: dashboard@1.0.0
+8 verbose lifecycle dashboard@1.0.0~dashboard: unsafe-perm in lifecycle true
+9 verbose lifecycle dashboard@1.0.0~dashboard: PATH: F:\NodeJS\node_modules\npm\bin\node-gyp-bin;C:\wamp64\www\Dashboard\node_modules\.bin;C:\Program Files\Haskell\bin;F:\Haskell\lib\extralibs\bin;F:\Haskell\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;F:\NodeJS\;F:\Haskell\mingw\bin;C:\Skype\Phone\;C:\Users\tom_m\AppData\Roaming\cabal\bin;C:\Users\tom_m\AppData\Roaming\local\bin;C:\Users\tom_m\Anaconda3;C:\Users\tom_m\Anaconda3\Scripts;C:\Users\tom_m\Anaconda3\Library\bin;F:\Microsoft VS Code\bin;C:\Users\tom_m\AppData\Local\Microsoft\WindowsApps;C:\Users\tom_m\AppData\Roaming\npm
+10 verbose lifecycle dashboard@1.0.0~dashboard: CWD: C:\wamp64\www\Dashboard
+11 silly lifecycle dashboard@1.0.0~dashboard: Args: [ '/d /s /c', 'node server.js' ]
+12 silly lifecycle dashboard@1.0.0~dashboard: Returned: code: 1  signal: null
+13 info lifecycle dashboard@1.0.0~dashboard: Failed to exec dashboard script
+14 verbose stack Error: dashboard@1.0.0 dashboard: `node server.js`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (F:\NodeJS\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (F:\NodeJS\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid dashboard@1.0.0
+16 verbose cwd C:\wamp64\www\Dashboard
+17 error Windows_NT 10.0.14393
+18 error argv "F:\\NodeJS\\node.exe" "F:\\NodeJS\\node_modules\\npm\\bin\\npm-cli.js" "run" "dashboard"
+19 error node v6.9.4
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error dashboard@1.0.0 dashboard: `node server.js`
+22 error Exit status 1
+23 error Failed at the dashboard@1.0.0 dashboard script 'node server.js'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the dashboard package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node server.js
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs dashboard
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls dashboard
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Stylesheets - Including Bootstrap, Custom style sheet, and a google font -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Revalia" rel="stylesheet">
     
+    <!-- Script calls - Including Twitter, Google Maps, and Custom Javascript File -->
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD20hEhOFvacycdb9UGlDrKb4Tu1lAKdZc&callback=initMap"></script>
     <script src="myJS.js"></script>
+
     <title>Dashboard</title>
 </head>
+
 <body onload="getLocation(); sendLocation(); getWeather(); getNotes()">
     <header>
         <h1><span id="dateTime"></span></h1>
@@ -29,30 +34,11 @@
             </div>
         </div>
 
-        <div class="col-md-4" id="test">
+        <div class="col-md-4">
             <div id="locationBox">
                 <p id="location">Location</p>
             </div>
             <div id="mapBox"></div>
-            <script>
-                function initMap() {
-                    if(localStorage.getItem("userLocation")){
-                        var userLocation = JSON.parse(localStorage.getItem("userLocation"));
-
-                        var map = new google.maps.Map(document.getElementById('mapBox'), {
-                            zoom: 13,
-                            center: {lat: Number(userLocation.lat), lng: Number(userLocation.lng)}
-                        });
-
-                        var trafficLayer = new google.maps.TrafficLayer();
-                        trafficLayer.setMap(map);
-                    } else {
-                        setTimeout(function(){
-                            initMap();
-                        }, 1000);
-                    }
-                }
-            </script>
         </div>
 
         <div class="col-md-4">
@@ -66,13 +52,35 @@
     </div>
 
     <script>
-        if(localStorage.getItem("twitterSettings") === null){
+        /**
+         * Initialises the map with a traffic layer
+         */ 
+        function initMap() {
+            if(localStorage.getItem("userLocation")){
+                var userLocation = JSON.parse(localStorage.getItem("userLocation"));
+
+                var map = new google.maps.Map(document.getElementById('mapBox'), {
+                    zoom: 13,
+                    center: {lat: Number(userLocation.lat), lng: Number(userLocation.lng)}
+                });
+
+                var trafficLayer = new google.maps.TrafficLayer();
+                trafficLayer.setMap(map);
+            } else { // Attempts to initialise the map every second if there is no stored location
+                setTimeout(function(){
+                    initMap();
+                }, 1000);
+            }
+        }
+
+        // If there is no stored twitterSetting sets the default username to twitterDev, otherwise sets it to the user selection
+        if(localStorage.getItem("twitterSettings") === null){ 
             localStorage.setItem("twitterSettings", "twitterDev");
             document.getElementById("twitter").href = "https://twitter.com/" + localStorage.getItem("twitterSettings");
         } else {
             document.getElementById("twitter").href = "https://twitter.com/" + localStorage.getItem("twitterSettings");
         }
-
+        
         document.getElementById("location").innerHTML = localStorage.getItem("weather");
     </script>
 </body>
