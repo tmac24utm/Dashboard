@@ -1,6 +1,6 @@
 'use strict';
 
-var ws = new WebSocket("ws://" + window.location.hostname + ":" + (window.location.port || 8080) + "/");
+var ws = new WebSocket("wss://" + window.location.hostname + ":" + (window.location.port || 8080) + "/");
 
 function checkElementExists(elem){
     var elem = document.querySelector(elem);
