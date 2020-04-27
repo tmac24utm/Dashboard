@@ -1,10 +1,6 @@
 'use strict';
 
-<<<<<<< HEAD
 var ws = new WebSocket("wss://" + window.location.hostname + ":" + (window.location.port || 8080) + "/");
-=======
-var ws = new WebSocket("ws://" + window.location.hostname + ":" + (window.location.port || 8080) + "/"); 
->>>>>>> origin/master
 
 /**
  * Check if an element exists using query selector
